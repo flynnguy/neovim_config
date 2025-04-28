@@ -72,7 +72,11 @@ set fileencoding=utf-8
 set fileencodings=utf-8
 
 let g:loaded_perl_provider = 0                    " Don't use perl provider
-let g:python3_host_prog = "~/.pyenv/versions/neovim3/bin/python"
+if has("mac")
+  let g:python3_host_prog = "~/.pyenv/versions/neovim3/bin/python"
+else
+  let g:python3_host_prog = "/usr/bin/python3"
+endif
 let $GOPATH = "/Users/chris-flynn/go"
 set relativenumber
 au FocusLost * :set number
